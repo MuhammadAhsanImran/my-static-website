@@ -1,21 +1,14 @@
 # My Static Website
 
-A responsive static website built with **HTML, CSS, and JavaScript**, created as part of my learning journey in **DevOps, AWS, and web technologies**.
+A responsive static website built with **HTML, CSS, and JavaScript**, created as part of my learning journey in **DevOps, Cybersecurity, AWS, and web technologies**.
 
-The project demonstrates how a static website can be structured, version-controlled with Git/GitHub, and prepared for deployment using **Amazon S3 Static Website Hosting**.
+This project demonstrates website development, Git/GitHub version control, deployment concepts, and **Docker containerization**.
 
 ## 🚀 Project Overview
 
-This project is a simple static website containing personal profile information, skills, projects, experience, certificates, resume, and contact information.
+This project is a personal static website containing profile information, skills, projects, experience, certificates, resume, and contact information.
 
-The main purpose of this project is to practice:
-
-- Static website development
-- HTML, CSS, and JavaScript
-- Git and GitHub
-- AWS S3 static website hosting
-- Basic cloud infrastructure concepts
-- Deployment workflow
+The project was also used for practicing **Docker and Containerization** as part of my Codomax internship.
 
 ## 🛠️ Technologies Used
 
@@ -24,6 +17,9 @@ The main purpose of this project is to practice:
 - JavaScript
 - Git
 - GitHub
+- Docker
+- Docker Compose
+- Nginx
 - Amazon S3
 
 ## ✨ Features
@@ -37,7 +33,9 @@ The main purpose of this project is to practice:
 - Resume section
 - Contact section
 - Interactive elements using JavaScript
-- Static website hosting with Amazon S3
+- Dockerized static website
+- Nginx web server
+- Docker Compose configuration
 
 ## 📁 Project Structure
 
@@ -49,24 +47,106 @@ my-static-website/
 ├── script.js
 ├── profile.jpg
 ├── resume.pdf
+├── Dockerfile
+├── docker-compose.yml
+├── .dockerignore
 └── README.md
 ```
 
+## 🐳 Docker Containerization
+
+The static website is containerized using **Docker** and served through **Nginx**.
+
+### Dockerfile
+
+The project uses the lightweight `nginx:alpine` image as the base image.
+
+```dockerfile
+FROM nginx:alpine
+
+COPY . /usr/share/nginx/html
+
+EXPOSE 80
+```
+
+### Build Docker Image
+
+```bash
+docker build -t my-static-website:optimized .
+```
+
+### Run Docker Container
+
+```bash
+docker run -d --name my-static-website-optimized -p 8083:80 my-static-website:optimized
+```
+
+The website can then be accessed at:
+
+```text
+http://localhost:8083
+```
+
+## 🐳 Docker Compose
+
+The project also includes a `docker-compose.yml` file for easier container management.
+
+```yaml
+services:
+  website:
+    build: .
+    ports:
+      - "8082:80"
+```
+
+Run the application with:
+
+```bash
+docker compose up -d
+```
+
+The website can be accessed at:
+
+```text
+http://localhost:8082
+```
+
+Stop the Compose application with:
+
+```bash
+docker compose down
+```
+
+## 📦 Docker Concepts Practiced
+
+During the Docker and Containerization module, I practiced:
+
+- Docker images
+- Docker containers
+- Dockerfile
+- Docker image building
+- Port mapping
+- Container networking
+- Docker volumes
+- Environment variables
+- Docker Compose
+- `.dockerignore`
+- Nginx-based containerization
+- Basic Dockerfile optimization
+
 ## ☁️ AWS S3 Deployment
 
-This project is designed for deployment using **Amazon S3 Static Website Hosting**.
+This project was also prepared for deployment using **Amazon S3 Static Website Hosting**.
 
 The deployment process includes:
 
 1. Creating an S3 bucket
-2. Uploading the website files
+2. Uploading website files
 3. Configuring static website hosting
-4. Configuring the required bucket permissions
+4. Configuring required bucket permissions
 5. Accessing the website through the S3 website endpoint
 
 ## 🔄 Development Workflow
-
-The project uses Git and GitHub for version control.
 
 ```text
 Edit website in VS Code
@@ -78,11 +158,11 @@ Git commit
 Git push
         ↓
 GitHub
+        ↓
+Docker Build
+        ↓
+Docker Container
 ```
-
-## 🌐 Live Demo
-
-Live website link will be added after the AWS S3 deployment is completed.
 
 ## 👨‍💻 Author
 
@@ -100,10 +180,12 @@ Aspiring DevOps Engineer & Cybersecurity Enthusiast
 
 **GitHub Repository:** Completed ✅
 
-**AWS S3 Deployment:** In Progress 🚀
+**Docker Containerization:** Completed ✅
 
-**Live Website:** To be added after deployment
+**Docker Compose:** Completed ✅
+
+**AWS S3 Deployment:** Completed / Practiced ✅
+
+**Live Website:** https://my-ahsan-website.vercel.app/
 
 ---
-
-⭐ This project is part of my practical learning journey in DevOps, AWS, Git/GitHub, and modern IT technologies.
