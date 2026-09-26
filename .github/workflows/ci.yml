@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check website files
+        run: |
+          echo "Checking website files..."
+          test -f index.html
+          test -f Dockerfile
+          echo "Website files found successfully."
+
+      - name: Build Docker image
+        run: docker build -t my-static-website .
