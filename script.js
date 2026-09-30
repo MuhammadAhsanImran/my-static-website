@@ -57,3 +57,86 @@ if (contactForm) {
         });
     });
 }
+
+
+// =========================
+// Authentication
+// =========================
+
+const API_BASE = "/backend/api";
+
+const registerForm = document.getElementById("registerForm");
+const loginForm = document.getElementById("loginForm");
+
+if (registerForm) {
+    registerForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("registerName").value.trim();
+        const email = document.getElementById("registerEmail").value.trim();
+        const password = document.getElementById("registerPassword").value;
+
+        const message = document.getElementById("registerMessage");
+
+        try {
+            const response = await fetch(`${API_BASE}/register.php`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    password
+                })
+            });
+
+            const result = await response.json();
+
+            message.textContent = result.message;
+
+            if (result.success) {
+                registerForm.reset();
+            }
+
+        } catch (error) {
+            message.textContent = "Unable to connect to server.";
+        }
+    });
+}
+
+
+if (loginForm) {
+    loginForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
+
+        const message = document.getElementById("loginMessage");
+
+        try {
+            const response = await fetch(`${API_BASE}/login.php`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            });
+
+            const result = await response.json();
+
+            message.textContent = result.message;
+
+            if (result.success) {
+                loginForm.reset();
+            }
+
+        } catch (error) {
+            message.textContent = "Unable to connect to server.";
+        }
+    });
+}

@@ -40,6 +40,7 @@
                 <a href="#certificates">Certificates</a>
                 <a href="#resume">Resume</a>
                 <a href="#contact">Contact</a>
+                <a href="#auth">Account</a>
             </div>
 
             <button id="themeBtn">🌙</button>
@@ -753,6 +754,100 @@
             </div>
 
         </section>
+
+        <!-- Authentication -->
+<section id="auth" class="section">
+
+    <div class="section-heading">
+        <p>Secure Access</p>
+        <h2>Account</h2>
+    </div>
+
+    <div class="auth-container">
+
+        <!-- Register -->
+        <div class="auth-card">
+
+            <h3>Create Account</h3>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label for="registerName">Name</label>
+                    <input
+                        type="text"
+                        id="registerName"
+                        placeholder="Your Name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Your Email"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create Password"
+                        required>
+                </div>
+
+                <button type="submit" class="btn primary-btn">
+                    Register
+                </button>
+
+            </form>
+
+            <p id="registerMessage" class="auth-message"></p>
+
+        </div>
+
+
+        <!-- Login -->
+        <div class="auth-card">
+
+            <h3>Login</h3>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Your Email"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Your Password"
+                        required>
+                </div>
+
+                <button type="submit" class="btn primary-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <p id="loginMessage" class="auth-message"></p>
+
+        </div>
+
+    </div>
+
+</section>
 
         <!-- Contact -->
         <section id="contact" class="section">

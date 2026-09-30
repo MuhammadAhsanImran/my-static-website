@@ -1,5 +1,9 @@
-FROM nginx:alpine
+FROM php:8.3-apache
 
-COPY . /usr/share/nginx/html
+WORKDIR /var/www/html
+
+COPY . /var/www/html/
+
+RUN docker-php-ext-install pdo pdo_mysql
 
 EXPOSE 80
