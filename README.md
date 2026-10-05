@@ -7,7 +7,9 @@ This project demonstrates website development, Git/GitHub version control, deplo
 ## 🚀 Project Overview
 
 This project is a personal static website containing profile information, skills, projects, experience, certificates, resume, and contact information.
+## 🏗️ Architecture
 
+![My Static Website Architecture](architecture-diagram.png)
 The project was also used for practicing **Docker and Containerization** as part of my Codomax internship.
 
 ## 🛠️ Technologies Used
